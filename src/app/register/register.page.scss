@@ -1,0 +1,16 @@
+.register-form {
+    max-width: 500px;
+    margin: 50px auto;
+    // background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[type="submit"] {
+    --background: #0f5f1a;
+    --color: #ffffff;
+    --border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+   }
