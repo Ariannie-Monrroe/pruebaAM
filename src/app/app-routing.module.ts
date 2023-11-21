@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-// import { Error404Component } from './error404/error404.page';
 
 const routes: Routes = [
   {
@@ -12,18 +11,40 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
-  // {
-  //   path: 'login',
-  //   loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+
+  {
+    path: 'home',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+
+  {
+    path: 'register',
+    redirectTo: 'register',
+    pathMatch: 'full'
+  },
+
+  // { PARA LA PAG PRINCIPAL
+  //   path: 'register',
+  //   redirectTo: 'register',
+  //   pathMatch: 'full'
   // },
+
+  // ** TIENE QUE SER LA ULTIMA
+  {
+    path: '**',
+    redirectTo: 'e404',
+    pathMatch: 'full'
+  },
+
   {
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
-  // {
-  //   path: 'error404',
-  //   loadChildren: () => import('./error404/error404.module').then( m => m.Error404PageModule)
-  // },
+  {
+    path: 'e404',
+    loadChildren: () => import('./e404/e404.module').then( m => m.E404PageModule)
+  },
 ];
 
 @NgModule({
