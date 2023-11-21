@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
-
+import { UserService } from '../services/user.service';
 
 @Component({
 selector: 'app-register',
@@ -11,11 +11,26 @@ styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage {
 registerForm: FormGroup;
+nombre: string = ''; 
+email: string; 
+password: string; 
+carrera: string;
+rut: string;
+fechaNacimiento: string;
+formularioServ: any;
 
-constructor(
+constructor(   
+    public userService: UserService,
     private formBuilder: FormBuilder,
     private alertController: AlertController
 ) {
+  this.nombre = '';
+  this.email = '';
+  this.password = '';
+  this.carrera = '';
+  this.rut= '';
+  this.fechaNacimiento= '';
+
     this.registerForm = this.formBuilder.group({
       // username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -25,6 +40,7 @@ constructor(
       fechaNacimiento: ['', Validators.required],
       carrera: ['', Validators.required],
     });
+
 }
 
 onSubmit() {
@@ -38,6 +54,13 @@ onSubmit() {
     } else {
       console.log('Formulario no válido');
     }
+
+    this.userService.add(this.nombre);
+    this.userService.add(this.email);
+    this.userService.add(this.password);
+    this.userService.add(this.rut);
+    this.userService.add(this.fechaNacimiento);
+    this.formularioServ= " ";
 }
 
 async scan() {
