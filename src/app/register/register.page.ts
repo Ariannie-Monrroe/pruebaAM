@@ -43,53 +43,97 @@ constructor(
 
 }
 
-onSubmit() {
-    if (this.registerForm.valid) {
-      console.log('Formulario enviado con éxito:', this.registerForm.value);
-      this.alertController.create({
-        header: 'Registro exitoso',
-        message: '¡Felicitaciones! Ya estás registrado.',
-        buttons: ['OK']
-      }).then(alert => alert.present());
-    } else {
-      console.log('Formulario no válido');
-    }
+// onSubmit() {
+//     if (this.registerForm.valid) {
+//       console.log('Formulario enviado con éxito:', this.registerForm.value);
+//       this.alertController.create({
+//         header: 'Registro exitoso',
+//         message: '¡Felicitaciones! Ya estás registrado.',
+//         buttons: ['OK']
+//       }).then(alert => alert.present());
+//     } else {
+//       console.log('Formulario no válido');
+//     }
 
-    this.userService.add(this.nombre);
-    this.userService.add(this.email);
-    this.userService.add(this.password);
-    this.userService.add(this.rut);
-    this.userService.add(this.fechaNacimiento);
-    this.formularioServ= " ";
-}
+//     this.userService.add(this.nombre);
+//     this.userService.add(this.email);
+//     this.userService.add(this.password);
+//     this.userService.add(this.rut);
+//     this.userService.add(this.fechaNacimiento);
+//     this.formularioServ= " ";
+// }
 
-async scan() {
-  try {
-    const image = await Camera.getPhoto({
-      quality: 90,
-      allowEditing: true,
-      resultType: CameraResultType.Uri,
-      source: CameraSource.Camera,
-    });
+async guardar(){
+  var f= this.registerForm.value;
 
+  if (this.registerForm.valid) {
+          // console.log(this.registerForm.value);
+          this.alertController.create({
+            header: 'Registro exitoso',
+            message: '¡Felicitaciones! Ya estás registrado.',
+            buttons: ['OK']
+          }).then(alert => alert.present());
+        } else {
+            this.alertController.create({
+              header: 'Ups',
+              message: 'Completa correctamente todos los campos',
+              buttons: ['Aceptar']
+            }).then(alert => alert.present());
+        
+  
+  
+  
+  // (this.registerForm.invalid){
+  //   this.alertController.create({
+  //     header: 'Ups',
+  //     message: 'Completa correctamente todos los campos',
+  //     buttons: ['Aceptar']
+  //   }).then(alert => alert.present());
 
-  } catch (error) {
-    console.log('Error en el scanner:', error);
+    // return
   }
-}
 
-async takePicture() {
-  try {
-    const image = await Camera.getPhoto({
-      quality: 90,
-      allowEditing: true,
-      resultType: CameraResultType.DataUrl,
-      source: CameraSource.Camera
-    });
-
-    console.log('Imagen capturada:', image);
-  } catch (error) {
-    console.error('Error al tomar la foto:', error);
+  var usuario= {
+    nombre: f.nombre,
+    email: f.email,
+    password: f.password,
+    carrera: f.carrera,
+    rut: f.rut,
+    fechaNacimiento: f.fechaNacimiento
   }
+
+  localStorage.setItem('usuario', JSON.stringify(usuario));
+  console.log(usuario)
 }
+
+
+// async scan() {
+//   try {
+//     const image = await Camera.getPhoto({
+//       quality: 90,
+//       allowEditing: true,
+//       resultType: CameraResultType.Uri,
+//       source: CameraSource.Camera,
+//     });
+
+
+//   } catch (error) {
+//     console.log('Error en el scanner:', error);
+//   }
+// }
+
+// async takePicture() {
+//   try {
+//     const image = await Camera.getPhoto({
+//       quality: 90,
+//       allowEditing: true,
+//       resultType: CameraResultType.DataUrl,
+//       source: CameraSource.Camera
+//     });
+
+//     console.log('Imagen capturada:', image);
+//   } catch (error) {
+//     console.error('Error al tomar la foto:', error);
+//   }
+// }
 }
