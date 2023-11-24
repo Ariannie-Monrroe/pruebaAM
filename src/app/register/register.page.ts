@@ -30,8 +30,8 @@ export class RegisterPage implements OnInit {
   comunaSeleccionada: string = '';
   regiones: Region[] = [];
   comunas: Comuna[] = [];
-  regionSel: number = 0;
-  comunaSel: number = 0;
+  idRegion: number = 0;
+  idComuna: number = 0;
   seleccionComuna: boolean = true;
   fechaNacimiento: string;
   formularioServ: any;
@@ -53,7 +53,11 @@ export class RegisterPage implements OnInit {
     this.fechaNacimiento = '';
     this.photo = '';
     this.regionSeleccionada = '';
-    this.comunaSeleccionada = ''
+    this.comunaSeleccionada = '';
+    this.idRegion = 0;
+    this.idComuna = 0;
+
+
 
     this.registerForm = this.formBuilder.group({
       // username: ['', Validators.required],
@@ -66,15 +70,25 @@ export class RegisterPage implements OnInit {
       region: ['', Validators.required],
       comuna: ['', Validators.required],
       photo: ['', Validators.required],
+      idRegion: [null, Validators.required],
+      idComuna: [null, Validators.required],
     });
 
   }
   async ngOnInit() {
     this.cargarRegion();
+    this.registerForm?.get('idRegion')?.valueChanges.subscribe((idRegion) => {
+      if (idRegion) {
+        this.idRegion = idRegion;
+        this.cargarComuna();
+      }
+    });
     defineCustomElements(window);
     this.photoService.loadSaved().then((photo) => {
       this.photo = photo ? photo.webviewPath : undefined;
+      this.registerForm?.get('photo')?.setValue(this.photo);
     });
+
 
     const datosLocalStorage = localStorage.getItem('usuario');
 
@@ -93,12 +107,15 @@ export class RegisterPage implements OnInit {
 
   async cargarComuna() {
     this.seleccionComuna = false;
-    const req = await this.apiUbication.getComuna(this.regionSel);
+    const req = await this.apiUbication.getComuna(this.idRegion);
     this.comunas = req.data;
+    console.log('Comunas cargadas:', this.comunas);
   }
 
   addPhotoToGallery() {
-    this.photoService.addNewToGallery();
+    this.photoService.addNewToGallery().then((photo) => {
+
+    });
   }
 
   async guardar() {
@@ -111,6 +128,14 @@ export class RegisterPage implements OnInit {
         message: 'Completa correctamente todos los campos',
         buttons: ['Aceptar']
       }).then(alert => alert.present());
+
+      Object.keys(this.registerForm.controls).forEach(key => {
+        const control = this.registerForm.get(key);
+
+        if (control && control.invalid) {
+          console.log(`Control '${key}' no es válido. Errores:`, control.errors);
+        }
+      });
     } else {
       this.alertController.create({
         header: 'Registro exitoso',
@@ -118,8 +143,8 @@ export class RegisterPage implements OnInit {
         buttons: ['OK']
       }).then(alert => alert.present());
       const locationSel = await this.getCurrentLocation();
-      const regionSeleccionada = this.regiones.find(region => region.id === this.regionSel);
-      const comunaSeleccionada = this.comunas.find(comuna => comuna.id === this.comunaSel);
+      const regionSeleccionada = this.regiones.find(region => region.id === this.idRegion);
+      const comunaSeleccionada = this.comunas.find(comuna => comuna.id === this.idComuna);
 
       var usuario = {
         nombre: f.nombre,
@@ -129,20 +154,18 @@ export class RegisterPage implements OnInit {
         rut: f.rut,
         fechaNacimiento: f.fechaNacimiento,
         photo: f.photo,
-        region: regionSeleccionada?.nombre,
-        comuna: comunaSeleccionada?.nombre,
+        region: f.idRegion.nombre,
+        comuna: f.idComuna.nombre,
         latitud: locationSel.latitude,
         longitud: locationSel.longitude,
       }
-
+      console.log(f.region);
       this.userService.guardarUsuario(usuario);
       console.log(usuario)
       this.router.navigateByUrl("login");
 
     }
   }
-
-
 
   async getCurrentLocation() {
     const location = await Geolocation.getCurrentPosition();
@@ -151,6 +174,8 @@ export class RegisterPage implements OnInit {
     var data = { latitude, longitude }
     return data
   }
+
+
   // onSubmit() {
   //     if (this.registerForm.valid) {
   //       console.log('Formulario enviado con éxito:', this.registerForm.value);
