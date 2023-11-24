@@ -8,7 +8,7 @@ export class AuthServiceService {
   private currentUser: any | null = null; //Datos usuario auth.
   private loggedInUser: string | null = null;
   constructor() { }
-  
+
   setUser(user: any) {
     this.currentUser = user;
   }

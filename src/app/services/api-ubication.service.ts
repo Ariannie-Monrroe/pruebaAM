@@ -4,6 +4,8 @@ import { lastValueFrom } from 'rxjs';
 import { ApiResponse } from '../models/apiResponse';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @Injectable({
