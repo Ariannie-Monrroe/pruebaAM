@@ -9,6 +9,9 @@ import { ApiUbicationService } from '../services/api-ubication.service';
 import { Region } from '../models/region';
 import { Comuna } from '../models/comuna';
 import { Geolocation, GeolocationPosition, PositionOptions } from '@capacitor/geolocation';
+import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
+import { NavController } from '@ionic/angular';
+
 
 
 
@@ -43,7 +46,8 @@ export class RegisterPage implements OnInit {
     public userService: UserService,
     private formBuilder: FormBuilder,
     private alertController: AlertController,
-    private apiUbication: ApiUbicationService
+    private apiUbication: ApiUbicationService,
+    private navCtrl: NavController,
   ) {
     this.nombre = '';
     this.email = '';
@@ -67,15 +71,16 @@ export class RegisterPage implements OnInit {
       rut: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
       fechaNacimiento: ['', Validators.required],
       carrera: ['', Validators.required],
-      region: ['', Validators.required],
-      comuna: ['', Validators.required],
+      // region: ['', Validators.required],
+      // comuna: ['', Validators.required],
       photo: ['', Validators.required],
-      idRegion: [null, Validators.required],
-      idComuna: [null, Validators.required],
+      idRegion: ['', Validators.required],
+      idComuna: ['', Validators.required],
     });
 
   }
   async ngOnInit() {
+    // this.cameraService.initializeCamera();
     this.cargarRegion();
     this.registerForm?.get('idRegion')?.valueChanges.subscribe((idRegion) => {
       if (idRegion) {
@@ -92,7 +97,6 @@ export class RegisterPage implements OnInit {
 
     const datosLocalStorage = localStorage.getItem('usuario');
 
-    // Si hay algo en el localStorage, muestra el botón
     if (datosLocalStorage) {
       this.mostrarBoton = true;
     }
@@ -112,10 +116,68 @@ export class RegisterPage implements OnInit {
     console.log('Comunas cargadas:', this.comunas);
   }
 
+  
+
   addPhotoToGallery() {
     this.photoService.addNewToGallery().then((photo) => {
-
     });
+  }
+
+  // async guardar() {
+  //   var f = this.registerForm.value;
+
+  //   if (!this.registerForm.valid) {
+  //     // console.log(this.registerForm.value);
+  //     this.alertController.create({
+  //       header: 'Ups',
+  //       message: 'Completa correctamente todos los campos',
+  //       buttons: ['Aceptar']
+  //     }).then(alert => alert.present());
+
+  //     Object.keys(this.registerForm.controls).forEach(key => {
+  //       const control = this.registerForm.get(key);
+
+  //       if (control && control.invalid) {
+  //         console.log(`Control '${key}' no es válido. Errores:`, control.errors);
+  //       }
+  //     });
+  //   } else {
+  //     this.alertController.create({
+  //       header: 'Registro exitoso',
+  //       message: '¡Felicitaciones! Ya estás registrado.',
+  //       buttons: ['OK']
+  //     }).then(alert => alert.present());
+  //     const locationSel = await this.getCurrentLocation();
+  //     const regionSeleccionada = this.regiones.find(region => region.id === this.idRegion);
+  //     const comunaSeleccionada = this.comunas.find(comuna => comuna.id === this.idComuna);
+
+  //     var usuario = {
+  //       nombre: f.nombre,
+  //       email: f.email,
+  //       password: f.password,
+  //       carrera: f.carrera,
+  //       rut: f.rut,
+  //       fechaNacimiento: f.fechaNacimiento,
+  //       photo: f.photo,
+  //       region: f.idRegion.nombre,
+  //       comuna: f.idComuna.nombre,
+  //       latitud: locationSel.latitude,
+  //       longitud: locationSel.longitude,
+  //     }
+  //     console.log(f.region);
+  //     this.userService.guardarUsuario(usuario);
+  //     console.log(usuario)
+  //     this.router.navigateByUrl("login");
+
+  //   }
+  // }
+
+  async getCurrentLocation() {
+    const location = await Geolocation.getCurrentPosition();
+    var latitude = location.coords.latitude;
+    var longitude = location.coords.longitude;
+    var data = { latitude, longitude }
+    return data
   }
 
   async guardar() {
@@ -163,16 +225,11 @@ export class RegisterPage implements OnInit {
       this.userService.guardarUsuario(usuario);
       console.log(usuario)
       this.router.navigateByUrl("login");
-
     }
   }
 
-  async getCurrentLocation() {
-    const location = await Geolocation.getCurrentPosition();
-    var latitude = location.coords.latitude;
-    var longitude = location.coords.longitude;
-    var data = { latitude, longitude }
-    return data
+  goBack() {
+    this.navCtrl.back();
   }
 
 

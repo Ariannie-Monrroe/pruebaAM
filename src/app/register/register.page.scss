@@ -12,3 +12,44 @@
     --border-radius: 5px;
     text-transform: uppercase;
 }
+
+.custom-item {
+    margin-bottom: 15px; 
+}
+
+.custom-label {
+    font-size: 16px; 
+}
+
+.custom-select {
+    width: 100%; 
+}
+
+// 
+
+.photo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.custom-button {
+    margin-top: 10px;
+    background-color: #3880ff; 
+    color: #ffffff; 
+}
+
+.camera-icon {
+    margin-right: 8px;
+}
+
+.photo-col {
+    margin-top: 10px;
+}
+
+.photo-img {
+    width: 100%; /* Ajusta el ancho de la imagen según tus preferencias */
+    max-height: 200px; /* Ajusta la altura máxima de la imagen según tus preferencias */
+    object-fit: cover; /* Ajusta cómo la imagen se adapta al contenedor */
+    border-radius: 8px; /* Ajusta el radio de borde para esquinas redondeadas */
+}

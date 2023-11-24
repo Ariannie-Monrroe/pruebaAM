@@ -30,6 +30,12 @@ const routes: Routes = [
     pathMatch: 'full'
   },
 
+  { 
+    path: 'forgot-password',
+    redirectTo: 'forgot-password',
+    pathMatch: 'full'
+  },
+
   // ** TIENE QUE SER LA ULTIMA
   {
     path: '**',
@@ -53,6 +59,10 @@ const routes: Routes = [
   {
     path: 'principal',
     loadChildren: () => import('./principal/principal.module').then( m => m.PrincipalPageModule)
+  },
+  {
+    path: 'forgot-password',
+    loadChildren: () => import('./forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
   },
 ];
 
