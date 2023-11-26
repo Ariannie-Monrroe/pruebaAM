@@ -1,0 +1,20 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "pruebaAM",
+	"webDir": "www",
+	"server": {
+		"androidScheme": "https"
+	},
+	"plugins": {
+		"SplashScreen": {
+			"launchShowDuration": 3000,
+			"launchFadeOutDuration": 3000,
+			"backgroundColor": "#ffffffff",
+			"showSpinner": false,
+			"androidSpinnerStyle": "small",
+			"iosSpinnerStyle": "small",
+			"splashFullScreen": true,
+			"splashImmersive": true
+		}
+	}
+}
