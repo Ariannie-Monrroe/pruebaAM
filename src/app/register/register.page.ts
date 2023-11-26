@@ -64,6 +64,7 @@ export class RegisterPage implements OnInit {
 
 
     this.registerForm = this.formBuilder.group({
+      // username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]],
       nombre: ['', Validators.required],
@@ -115,7 +116,7 @@ export class RegisterPage implements OnInit {
     console.log('Comunas cargadas:', this.comunas);
   }
 
-
+  
 
   addPhotoToGallery() {
     this.photoService.addNewToGallery().then((photo) => {
@@ -204,8 +205,8 @@ export class RegisterPage implements OnInit {
         buttons: ['OK']
       }).then(alert => alert.present());
       const locationSel = await this.getCurrentLocation();
-      const region = this.regiones.find(r => r.id === f.idRegion)?.nombre;
-      const comuna = this.comunas.find(c => c.id === f.idComuna)?.nombre;
+      const regionSeleccionada = this.regiones.find(region => region.id === this.idRegion);
+      const comunaSeleccionada = this.comunas.find(comuna => comuna.id === this.idComuna);
 
       var usuario = {
         nombre: f.nombre,
@@ -215,15 +216,15 @@ export class RegisterPage implements OnInit {
         rut: f.rut,
         fechaNacimiento: f.fechaNacimiento,
         photo: f.photo,
-        region: region,
-        comuna: comuna,
+        region: f.idRegion.nombre,
+        comuna: f.idComuna.nombre,
         latitud: locationSel.latitude,
         longitud: locationSel.longitude,
       }
       console.log(f.region);
       this.userService.guardarUsuario(usuario);
       console.log(usuario)
-      this.router.navigateByUrl("home");
+      this.router.navigateByUrl("login");
     }
   }
 

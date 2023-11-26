@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { UserService } from '../services/user.service';
-import { AuthServiceService } from '../services/auth-service.service';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+// import { FormBuilder } from '@angular/forms';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 
@@ -14,15 +14,12 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class HomePage {
 
   loginForm: FormGroup;
-  email: string = "";
-  contraseña: string = "";
 
   constructor(
     private router: Router,
     private userService: UserService,
     private fb: FormBuilder,
     private alertController: AlertController,
-    private authService: AuthServiceService,
   ) {
     this.loginForm = this.fb.group({
       'email': new FormControl("", Validators.required),
@@ -37,33 +34,49 @@ export class HomePage {
   recuperarContrasena() {
     this.router.navigateByUrl("recuperar-contrasena");
   }
+
+  // iniciarSesion() {
+  //   const usuarios = this.userService.getUsers();
+  //   const usuarioEncontrado = usuarios.find(
+  //     user =>
+  //       user.email === this.usuario.email &&
+  //       user.password === this.usuario.password
+  //   );
+
+  //   if (usuarioEncontrado) {
+  //     this.router.navigate(['/register']);
+  //     console.log('Inicio de sesión exitoso');
+  //   } else {
+  //     // Usuario no encontrado o contraseña incorrecta
+  //     console.log('Inicio de sesión fallido');
+  //   }
+  // }
+
   async ingresar() {
     var f = this.loginForm.value;
-    console.log('Formulario:', f);
 
-    this.email = f.email;
-    this.contraseña = f.password;
-    const credencialesValidas = await this.userService.validarCredenciales(
-      this.email,
-      this.contraseña
-    );
+    var usuarioString: string | null = localStorage.getItem('usuario');
+    var usuario: { email: string; password: string } | null = usuarioString ? JSON.parse(usuarioString) : null;
 
-
-    if (credencialesValidas) {
-      const usuario = await this.userService.obtenerAlumno(f.email);
-      if (credencialesValidas) {
-        this.authService.setLoggedInUser(f.email);
-        this.router.navigateByUrl('menu');
-      }
+    // Verifica si el usuario es nulo antes de intentar acceder a sus propiedades
+    if (usuario && usuario.email === f.email && usuario.password === f.password) {
+      console.log('ingresar');
     } else {
       this.alertController.create({
         header: 'Ups, Datos Incorrectos',
         message: 'Los datos que ingresaste no son correctos',
         buttons: ['Aceptar']
       }).then(alert => alert.present());
-      console.log(f.email, f.password)
-
     }
   }
+
+  //     var usuario: string | null = JSON.parse(localStorage.getItem('usuario'));
+
+  //     if(usuario && usuario.email === f.email && usuario.password === f.password){
+  //       console.log('ingresar');
+  // } else {
+  //   console.log('Inicio de sesión fallido');
+  // }
+  //   }
 }
 

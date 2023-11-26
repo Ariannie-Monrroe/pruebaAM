@@ -8,13 +8,14 @@
   <ion-list>
     <form [formGroup]="loginForm">
       <ion-item>
-        <ion-label position="">Correo</ion-label>
-        <ion-input type="text" formControlName="email"></ion-input>
+        <!-- *ngFor="let formularioServ of userService.formularioServ" -->
+        <ion-label position="stacked">Correo</ion-label>
+        <ion-input type="text"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label position="stacked">Contraseña</ion-label>
-        <ion-input type="password" formControlName="password"></ion-input>
+        <ion-input type="password"></ion-input>
       </ion-item>
     </form>
     <ion-row>
@@ -22,8 +23,7 @@
         <div class="ion-padding">
           <ion-button expand="block" fill="clear" color="success" (click)="ingresar()">Iniciar sesión</ion-button>
           <ion-button expand="block" fill="clear" color="success" (click)="registro()">Registrarse</ion-button>
-          <ion-button expand="block" fill="clear" color="success" routerLink="/forgot-password">Recuperar
-            contraseña</ion-button>
+          <ion-button expand="block" fill="clear" color="success" routerLink="/forgot-password">Recuperar contraseña</ion-button>
         </div>
       </ion-col>
     </ion-row>

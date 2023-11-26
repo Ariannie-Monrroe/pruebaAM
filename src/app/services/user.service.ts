@@ -7,7 +7,7 @@ const userStorage = 'userStorage';
 })
 export class UserService {
 
-  constructor(private authService: AuthServiceService) { }
+  constructor( private authService: AuthServiceService ) { }
   // formularioServ: any[] = []
 
   // add(formularioServ: any){
@@ -41,12 +41,12 @@ export class UserService {
     const usuarioObtenido = await this.obtenerAlumno(correo);
     if (usuarioObtenido) {
       console.log('Usuario obtenido:', usuarioObtenido);
-      return usuarioObtenido.password === contrasena;
+      return usuarioObtenido[0].contrasena === contrasena;
     }
     return false;
   }
 
-  async obtenerAlumno(email: string) {
+  async obtenerAlumno(correo: string) {
     const datos = await this.obtenerUsuarios(this.userStorage);
 
     if (datos === null) {
@@ -54,12 +54,11 @@ export class UserService {
     }
     const data: any[] = JSON.parse(datos);
     if (data) {
-      console.log('Datos obtenidos:', data);
       // Buscar el usuario por correo electrónico
       // console.log("Probando ", data[0][0].correo); // Esto imprimirá "pepoed"
       // console.log('Buscando usuario con correo:', correo);
       // const usuarioEncontrado = data.flat(2).find((user) => user.correo === correo);
-      const usuarioEncontrado = data.find((user) => user.email === email);
+      const usuarioEncontrado = data.find((user) => user[0].correo === correo);
 
       console.log('Usuario encontrado:', usuarioEncontrado);
       return usuarioEncontrado || null;
@@ -72,14 +71,14 @@ export class UserService {
 
 
 
-  async obtenerDatosUsuarioActual(): Promise<any | null> {
-    const correoUsuarioActual = this.authService.getLoggedInUser(); // Obtén el correo del usuario actual
-    if (correoUsuarioActual) {
-      const usuario = await this.obtenerAlumno(correoUsuarioActual);
-      return usuario;
-    } else {
-      return null; // No hay un usuario logeado
+    async obtenerDatosUsuarioActual(): Promise<any | null> {
+      const correoUsuarioActual = this.authService.getLoggedInUser(); // Obtén el correo del usuario actual
+      if (correoUsuarioActual) {
+        const usuario = await this.obtenerAlumno(correoUsuarioActual);
+        return usuario;
+      } else {
+        return null; // No hay un usuario logeado
+      }
     }
-  }
 
 }
