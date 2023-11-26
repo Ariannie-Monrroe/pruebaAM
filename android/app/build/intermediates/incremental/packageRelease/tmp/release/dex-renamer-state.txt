@@ -1,4 +1,4 @@
-#Sat Nov 25 20:51:14 CLST 2023
+#Sat Nov 25 21:13:44 CLST 2023
 base.0=C\:\\Users\\jsmsp\\Desktop\\ExamenTransversal\\pruebaAM\\android\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
 base.1=C\:\\Users\\jsmsp\\Desktop\\ExamenTransversal\\pruebaAM\\android\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes2.dex
 path.0=classes.dex

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="ic_launcher_background">#FFFFFF</color>
-    <string name="app_name">ExamenTransversalAriannieyJose</string>
+    <string name="app_name">EXAMENTRANSVERSAL</string>
     <string name="custom_url_scheme">io.ionic.starter</string>
     <string name="package_name">io.ionic.starter</string>
     <string name="title_activity_main">pruebaAM</string>
