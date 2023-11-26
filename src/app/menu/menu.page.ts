@@ -36,10 +36,7 @@ export class MenuPage implements OnInit {
     this.router.navigateByUrl("home");
   }
   loadAndConvertPhoto(photoPath: string) {
-    // Carga la foto desde la ruta del archivo (photoPath)
-    // Convierte la foto a Base64 y asigna el resultado a this.user.photo
 
-    // Ejemplo de cómo cargar y convertir una imagen desde una URL (puede variar según tu configuración)
     const reader = new FileReader();
     fetch(photoPath)
       .then((response) => response.blob())
@@ -47,7 +44,6 @@ export class MenuPage implements OnInit {
         reader.readAsDataURL(blob);
       });
     reader.onloadend = () => {
-      // Asigna la imagen convertida en Base64 a this.user.photo
       this.user.photo = reader.result;
     };
   }

@@ -11,10 +11,10 @@ INJECTED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\
 	android:name
 		ADDED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:24:13-62
 manifest
-ADDED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:2:1-35:12
+ADDED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:2:1-44:12
+INJECTED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:2:1-44:12
+INJECTED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:2:1-44:12
+INJECTED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:2:1-44:12
 MERGED from [:capacitor-app] C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\node_modules\@capacitor\app\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
 MERGED from [:capacitor-camera] C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\node_modules\@capacitor\camera\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-13:12
 MERGED from [:capacitor-filesystem] C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\node_modules\@capacitor\filesystem\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
@@ -74,20 +74,20 @@ MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\User
 MERGED from [androidx.print:print:1.0.0] C:\Users\jsmsp\.gradle\caches\transforms-3\48f44416a1aa2afb113010b955b67f94\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\jsmsp\.gradle\caches\transforms-3\c4eb8610416ba9fcff7203d70109fbae\transformed\annotation-experimental-1.3.0\AndroidManifest.xml:17:1-22:12
 MERGED from [org.apache.cordova:framework:10.1.1] C:\Users\jsmsp\.gradle\caches\transforms-3\05c878bccf3e6fff3e743a9590f85fe9\transformed\framework-10.1.1\AndroidManifest.xml:20:1-27:12
-INJECTED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:2:1-44:12
+INJECTED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:2:1-44:12
+INJECTED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:2:1-44:12
 	package
 		INJECTED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:2:1-35:12
+		ADDED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:2:1-44:12
 		INJECTED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:2:1-35:12
+		ADDED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:2:1-44:12
 		INJECTED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:2:1-35:12
+		ADDED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:2:1-44:12
 		INJECTED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:2:11-69
@@ -161,6 +161,26 @@ uses-permission#android.permission.INTERNET
 ADDED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:34:5-67
 	android:name
 		ADDED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:34:22-64
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:35:5-79
+	android:name
+		ADDED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:35:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:36:5-81
+	android:name
+		ADDED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:36:22-78
+uses-permission#android.permission.CAMERA
+ADDED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:39:5-65
+	android:name
+		ADDED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:39:22-62
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:42:5-80
+	android:name
+		ADDED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:42:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:43:5-81
+	android:name
+		ADDED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml:43:22-78
 uses-sdk
 INJECTED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\jsmsp\Desktop\ExamenTransversal\pruebaAM\android\app\src\main\AndroidManifest.xml

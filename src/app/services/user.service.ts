@@ -8,15 +8,6 @@ const userStorage = 'userStorage';
 export class UserService {
 
   constructor(private authService: AuthServiceService) { }
-  // formularioServ: any[] = []
-
-  // add(formularioServ: any){
-  //   this.formularioServ.push(formularioServ)
-  // }  
-
-  // getUsers() {
-  //   return this.formularioServ;
-  // }
 
   private userStorage = 'userStorage';
 
@@ -55,10 +46,7 @@ export class UserService {
     const data: any[] = JSON.parse(datos);
     if (data) {
       console.log('Datos obtenidos:', data);
-      // Buscar el usuario por correo electrónico
-      // console.log("Probando ", data[0][0].correo); // Esto imprimirá "pepoed"
-      // console.log('Buscando usuario con correo:', correo);
-      // const usuarioEncontrado = data.flat(2).find((user) => user.correo === correo);
+
       const usuarioEncontrado = data.find((user) => user.email === email);
 
       console.log('Usuario encontrado:', usuarioEncontrado);
