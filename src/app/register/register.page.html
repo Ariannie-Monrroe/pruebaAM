@@ -38,7 +38,7 @@
           <ion-icon name="camera" class="camera-icon"></ion-icon>
           Foto estudiante
         </ion-button>
-      
+
         <ion-col size="3" class="photo-col">
           <ion-img [src]="photoService.photo?.webviewPath" class="photo-img"></ion-img>
         </ion-col>
@@ -104,7 +104,7 @@
           Por favor, selecciona una región.
         </ion-text>
       </ion-item>
-      
+
       <ion-item *ngIf="registerForm.get('idRegion')?.value" class="custom-item">
         <ion-label position="floating" class="custom-label">Comuna</ion-label>
         <ion-select formControlName="idComuna" name="idComuna" placeholder="Seleccione" class="custom-select">
@@ -115,7 +115,7 @@
           Por favor, selecciona una comuna.
         </ion-text>
       </ion-item>
-      
+
 
       <!-- <ion-item>
         <ion-label position="floating">Region</ion-label>
